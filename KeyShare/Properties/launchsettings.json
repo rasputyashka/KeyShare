@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "KeyShare (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "KeyShare (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}

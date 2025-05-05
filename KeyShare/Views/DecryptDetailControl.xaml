@@ -1,0 +1,77 @@
+﻿<UserControl
+    x:Class="KeyShare.Views.DecryptDetailControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ScrollViewer
+        Name="ForegroundElement"
+        HorizontalAlignment="Left"
+        VerticalScrollMode="Enabled"
+        IsTabStop="True">
+
+            <StackPanel Margin="20,0,0,0" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <TextBlock
+                        Margin="{StaticResource SmallLeftMargin}"
+                        VerticalAlignment="Center"
+                        Text="{x:Bind MenuItem.Title, Mode=OneWay}"
+                        Style="{ThemeResource TitleTextBlockStyle}" />
+                </StackPanel>
+                <StackPanel Padding="0,15,0,0">
+                    <TextBlock
+                        x:Uid="DecryptDetail_CreatedAt"
+                        Margin="{StaticResource SmallTopMargin}"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind MenuItem.CreatedAt, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                    <TextBlock
+                        Margin="{StaticResource SmallTopMargin}"
+                        x:Uid="DecryptDetail_KeyID"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind MenuItem.KeyID, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+
+                    <TextBlock
+                        Margin="{StaticResource SmallTopMargin}"
+                        x:Uid="DecryptDetail_Algorithm"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind MenuItem.Algorithm, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+
+                    <TextBlock
+                        Margin="{StaticResource SmallTopMargin}"
+                        x:Uid="DecryptDetail_Threshold"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock Text="{x:Bind MenuItem.Threshold, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+
+                    <TextBlock
+                        Margin="{StaticResource MediumTopMargin}"
+                        x:Uid="DecryptDetail_Description"
+                        Style="{StaticResource DetailSubTitleStyle}" />
+                    <TextBlock
+                        Style="{StaticResource DetailBodyStyle}"
+                        Text="{x:Bind MenuItem.Description, Mode=OneWay}"
+                    />
+                    <TextBlock
+                    FontSize="18"
+                    Margin="{StaticResource MediumTopMargin}"
+                    x:Uid="DecryptDetail_EncryptedContent"
+                    Style="{StaticResource DetailSubTitleStyle}"/>
+                    <TextBox
+                    Margin="0,15,0,0"
+                    Text="{x:Bind MenuItem.DisplayContent, Mode=TwoWay}"
+                    IsReadOnly="True"
+                    FontSize="16"
+                    TextWrapping="Wrap"/>
+                <Button
+                    Style="{StaticResource AccentButtonStyle}"
+                    Margin="0,15,0,0"
+                    FontSize="16"
+                    Padding="8"
+                    x:Uid="DecryptDetail_DecryptButton"
+                    Command="{x:Bind ViewModel.DecryptClickCommand}"
+                    CommandParameter="{x:Bind MenuItem, Mode=OneWay}"/>
+
+            </StackPanel>
+            </StackPanel>
+    </ScrollViewer>
+</UserControl>
